@@ -1,3 +1,36 @@
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "loteria";
+
+// Cria conexão com o banco de dados
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verifica se a conexão foi bem sucedida
+if ($conn->connect_error) {
+  die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+}
+
+// Consulta SQL para buscar o valor do bilhete
+$sql = "SELECT valor FROM valor LIMIT 1";
+
+// Executa a consulta
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows > 0) {
+  $row = $result->fetch_assoc();
+  $precoUnitario = $row["valor"];
+} else {
+  $precoUnitario = 0.20; // valor padrão em caso de falha na consulta
+}
+
+// Fecha a conexão com o banco de dados
+$conn->close();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +53,7 @@
 		const totalParagrafo = document.getElementById("total");
 
 		// Definir o preço unitário dos bilhetes
-		const precoUnitario = 0.20;
+		const precoUnitario = <?php echo $precoUnitario ?>;
 
 		// Adicionar um ouvinte de eventos para o campo de entrada da quantidade
 		quantidadeInput.addEventListener("input", () => {

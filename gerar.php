@@ -1,20 +1,16 @@
+
 <?php
 // Verifica se as informações necessárias foram enviadas
 if (isset($_POST['quantidade']) && isset($_POST['nome']) && isset($_POST['telefone'])) {
     // Conecta com o banco de dados
-    $servername = "db4free.net";
-    $username = "rifasdadosdb12";
-    $password = "lulade24";
-    $dbname = "rifadadso12";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "loteria";
     $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) {
         die("Conexão falhou: " . $conn->connect_error);
     }
-
-
-
-    // Define o valor da rifa
-    $valor_rifa = 10;
 
     // Pega a quantidade de bilhetes selecionada
     $quantidade = $_POST['quantidade'];
@@ -28,27 +24,38 @@ if (isset($_POST['quantidade']) && isset($_POST['nome']) && isset($_POST['telefo
     }
     $cliente_id = $conn->insert_id;
 
+    // Cria uma string para armazenar os números de bilhetes gerados
+    $numeros_gerados = "";
+
     // Gera um número aleatório para cada bilhete
     for ($i = 1; $i <= $quantidade; $i++) {
         // Gera um número no padrão da loteria federal
         $numero = mt_rand(10000, 99999);
 
         // Verifica se o número já foi vendido
-        $sql = "SELECT * FROM rifas WHERE numero = $numero";
+        $sql = "SELECT * FROM clientes WHERE FIND_IN_SET($numero, bilhete)";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             $i--;
             continue;
         }
 
-        // Insere as informações da rifa no banco de dados
-        $sql = "INSERT INTO rifas (numero, cliente_id, valor) VALUES ($numero, $cliente_id, $valor_rifa)";
-        if ($conn->query($sql) === false) {
-            die("Erro ao inserir informações da rifa: " . $conn->error);
-        }
+        // Adiciona o número de bilhete gerado à string
+        $numeros_gerados .= $numero . ",";
 
-        // Exibe o número do bilhete gerado
-        echo "Número do bilhete gerado: $numero<br>";
     }
+
+    // Remove a última vírgula da string
+    $numeros_gerados = rtrim($numeros_gerados, ",");
+
+    // Insere as informações dos bilhetes no banco de dados
+    $sql = "UPDATE clientes SET bilhete='$numeros_gerados' WHERE id=$cliente_id";
+    if ($conn->query($sql) === false) {
+        die("Erro ao inserir informações dos bilhetes: " . $conn->error);
+    }
+
+    // Redireciona o usuário para a página de resultado com os números de bilhetes gerados
+    header("Location: resultado.php?numeros=" . $numeros_gerados);
+    exit();
 }
 ?>

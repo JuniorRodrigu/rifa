@@ -1,9 +1,9 @@
 <?php
 // Configurações do banco de dados
-$servername = "db4free.net";
-$username = "rifasdadosdb12";
-$password = "lulade24";
-$dbname = "rifadadso12";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "rifa_db";
 
 // Conecta ao banco de dados
 $conn = new mysqli($servername, $username, $password, $dbname);
