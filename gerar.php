@@ -2,15 +2,7 @@
 <?php
 // Verifica se as informações necessárias foram enviadas
 if (isset($_POST['quantidade']) && isset($_POST['nome']) && isset($_POST['telefone'])) {
-    // Conecta com o banco de dados
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "loteria";
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Conexão falhou: " . $conn->connect_error);
-    }
+    require_once 'conc.php';
 
     // Pega a quantidade de bilhetes selecionada
     $quantidade = $_POST['quantidade'];
