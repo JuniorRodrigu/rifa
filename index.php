@@ -1,9 +1,9 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "loteria";
+$servername = "db4free.net";
+$username = "rifasdadosdb12";
+$password = "lulade24";
+$dbname = "rifadadso12";
 
 // Cria conexão com o banco de dados
 $conn = new mysqli($servername, $username, $password, $dbname);
