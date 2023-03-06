@@ -1,4 +1,3 @@
-
 <?php
 // Verifica se as informações necessárias foram enviadas
 if (isset($_POST['quantidade']) && isset($_POST['nome']) && isset($_POST['telefone'])) {
@@ -51,3 +50,23 @@ if (isset($_POST['quantidade']) && isset($_POST['nome']) && isset($_POST['telefo
     exit();
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="stayle.css">
+<head>
+    <title>Gerar Rifa</title>
+</head>
+<body>
+    <h1>Rifa</h1>
+    <form method="post" action="gerar.php">
+        <label for="quantidade">Quantidade de bilhetes:</label>
+        <input type="number" id="quantidade" name="quantidade" min="1" max="1000" required><br><br>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" required><br><br>
+        <button type="submit">Gerar Rifa</button>
+    </form>
+</body>
+</html>

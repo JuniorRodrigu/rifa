@@ -25,16 +25,21 @@ $conn->close();
 	<link rel="stylesheet" href="stayle.css">
 </head>
 <body>
-	<div class="container">
+	<div >
 		<h1>Escolha a quantidade de bilhetes</h1>
 		<form action="informacoes.php" method="post">
-			<label for="quantidade">Quantidade:</label>
-			<input type="number" name="quantidade" id="quantidade" min="1" max="10" required>
+			<div class="container">
+        <button type="button" id="decrement" onclick="stepper(-1)"> - </button>
+        <input type="number" min="1" max="100" step="1" value="1" name="quantidade" id="quantidade" oninput="stepper(0)">
+        <button type="button" id="increment" onclick="stepper(1)"> + </button>
+    </div>
+		
 			<p id="total"></p>
-			<button type="submit" name="submit">Continuar</button>
+			<button type="submit" id="continuar" name="submit">Continuar</button>
 		</form>
 	</div>
-	<script>
+	<div>
+	<script >
 		// Obter referência ao campo de entrada da quantidade e ao parágrafo para exibir o total
 		const quantidadeInput = document.getElementById("quantidade");
 		const totalParagrafo = document.getElementById("total");
@@ -51,6 +56,18 @@ $conn->close();
 			const total = quantidade * precoUnitario;
 			totalParagrafo.innerText = `Total: R$ ${total.toFixed(2)}`;
 		});
+    function stepper(value) {
+      const quantidade = parseInt(quantidadeInput.value);
+      const novoValor = quantidade + value;
+
+      if (novoValor >= 0 && novoValor <= 100) {
+        quantidadeInput.value = novoValor;
+        const total = novoValor * precoUnitario;
+        totalParagrafo.innerText = `Total: R$ ${total.toFixed(2)}`;
+      }
+    }
+
 	</script>
+	</div>
 </body>
 </html>
