@@ -1,182 +1,118 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-  }
-  
-  .container {
-    width: 90%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-  }
-  
-  h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 18px;
-  }
-  
-  input[type="number"] {
-    display: block;
-    width: 70%;
-    padding: 30px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  
-  button {
-    display: block;
-    width: 10%;
-    padding: 10px;
-    margin-top: 20px;
-    font-size: 18px;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #3e8e41;
-  }
-  
-  .error {
-    color: red;
-    margin-top: 10px;
-  }
-  
-  /* Estilos para dispositivos pequenos, como smartphones */
-  @media (max-width: 767px) {
-    .container {
-      width: 100%;
-      padding: 10px;
-      border-radius: 0;
-    }
-  
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-  
-    label {
-      font-size: 16px;
-      margin-bottom: 8px;
-    }
-  
-    input[type="number"] {
-      font-size: 14px;
-      padding: 8px;
-    }
-  
-    button {
-      font-size: 16px;
-      padding: 8px;
-      margin-top: 15px;
-    }
-  }
-  @media (max-width: 414px) {
-    .container {
-      max-width: 100%;
-      padding: 10px;
-    }
-  }
-  /* Define as cores principais */
-:root {
-  --primary-color: #4CAF50;
-  --secondary-color: #f2f2f2;
-  --font-color: #333;
-}
-
-/* Define estilos gerais */
-body {
+/* Estilos gerais */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
-  background-color: var(--secondary-color);
 }
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+body {
+  background-color: #f5f5f5;
+  color: #202030;
 }
 
 h1 {
-  font-size: 32px;
-  margin-bottom: 20px;
-  color: var(--primary-color);
+  text-align: center;
 }
 
-label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 18px;
-  color: var(--font-color);
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  width: 100vw;
+  height: 100vh;
 }
 
-input[type="number"] {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-top: 20px;
-  font-size: 18px;
+/*aqui <button type="submit" id="continuar" name="submit">Continuar</button>*/
+#continuar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3264fe;
+  width: 15vw;
+  height: 8vh;
   color: #fff;
-  background-color: var(--primary-color);
   border: none;
-  border-radius: 5px;
+  font-size: 24px;
+  border-radius: 25px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #3e8e41;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 45px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
 }
 
-.error {
-  color: red;
-  margin-top: 10px;
+.adiction {
+  display: flex;
+  flex-direction: row;
 }
 
-/* Estilos para dispositivos grandes, como desktops */
-@media (min-width: 992px) {
-  /* Define a largura máxima da página */
-  .container {
-    max-width: 960px;
-  }
+input[type="number"] {
+  -moz-appearance: textfield;
+  font-size: 40px;
+  border: none;
+  background-color: #ffffff;
+  color: #202030;
+  width: 15vw;
+  height: 10vh;
+}
+#quantidade{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 0.5rem;
 }
 
-/* Estilos para dispositivos médios, como tablets */
-@media (min-width: 768px) and (max-width: 991px) {
-  /* Define a largura máxima da página */
-  .container {
-    max-width: 750px;
-  }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-/* Estilos para dispositivos pequenos, como smartphones */
-@media (max-width: 767px) {
-  /* Define a largura máxima da página */
-  .container {
-    max-width: 450px;
+#decrement {
+  color: #3264fe;
+  background-color: #ffffff;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+  padding: 15px 5px 15px 25px;
+  border-radius: 45px 0 0 45px;
+}
+
+#increment {
+  color: #3264fe;
+  background-color: #ffffff;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+  padding: 15px 25px 15px 5px;
+  border-radius: 0 45px 45px 0;
+}
+
+#total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0af358;
+  color: #fff;
+  font-size: 1.5rem;
+  border-radius: 25px;
+  width: 20vw;
+  height: 8vh;
+}
+
+/* Estilos para dispositivos móveis com largura menor que 500px */
+@media (max-width:800px) {
+  body{
+    background-color: #e20707;
   }
 }

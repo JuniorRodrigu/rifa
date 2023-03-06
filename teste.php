@@ -1,17 +1,6 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "loteria";
-
-// Cria conexão com o banco de dados
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verifica se a conexão foi bem sucedida
-if ($conn->connect_error) {
-  die("Erro na conexão com o banco de dados: " . $conn->connect_error);
-}
+require_once 'conc.php';
 
 if(isset($_POST['telefone'])){
   $telefone = $_POST['telefone'];
