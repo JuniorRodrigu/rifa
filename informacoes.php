@@ -2,6 +2,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css" media="screen and (min-width: 480px)">
+<link rel="stylesheet" href="stayle.css">
 
 <head>
     <title>Comprar Rifa</title>
@@ -10,7 +11,7 @@
 <?php
         $quantidade = $_POST['quantidade'];
     ?>
-    <form method="post" action="gerar.php">
+    <form class="info" method="post" action="gerar.php">
         <input type="hidden" name="quantidade" value="<?php echo $_POST['quantidade']; ?>">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required><br><br>
