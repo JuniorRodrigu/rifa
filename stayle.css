@@ -29,7 +29,7 @@
   }
 
   .imagem {
-    width: 60vw;
+    width: 50vw;
     height: 40vh;
     border-radius: 2rem;
   }
@@ -113,11 +113,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #361bce;
+    background-color: #0af358;
     color: #fff;
     font-size: 1.5rem;
     border-radius: 25px;
-    width: 20vw;
+    width: 40vw;
     height: 5vh;
   }
 
@@ -236,7 +236,7 @@
     justify-content: center;
     align-items: center;
     background-color: #0af358;
-    color: #0804e9;
+    color: #f4f4f7;
     font-size: 1rem;
     border-radius: 0.8rem;
     min-width: 30vw;
